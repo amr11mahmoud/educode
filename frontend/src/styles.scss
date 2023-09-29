@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'styles/root/resets';
+@import 'styles/root/mixins';
+@import 'styles/root/theme';
+@import 'styles/typography/paragraphs';
+@import 'styles/typography/headers';
+@import 'styles/root/links';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+
+:root {
+    @include spread-map($theme-map-light);
+}
+
+:root.dark {
+    @include spread-map($theme-map-dark);
+}
+
+body{
+    font: 400 .93rem / 1.6 'Poppins', sans-serif;
+}
+

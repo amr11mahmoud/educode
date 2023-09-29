@@ -1,0 +1,39 @@
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    gap: 1rem;
+    color: var(--theme-on-primary);
+    & > *, .logo {
+        display: flex;
+        align-items: center;
+        gap:1.5rem
+    }
+
+    .nav__link{
+        display: flex;
+        align-items: center;
+        gap: .75rem
+    }
+}
+
+.layout__container__wrapper{
+    background-color: var(--theme-primary);
+}
+
+.header__btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar__btn{
+    color: var(--theme-success);
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}

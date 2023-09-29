@@ -1,0 +1,30 @@
+$--theme-primary: --theme-primary;
+$--theme-secondary: --theme-secondary;
+$--theme-surface: --theme-surface;
+$--theme-background: --theme-background;
+$--theme-on-primary: --theme-on-primary;
+$--theme-on-secondary: --theme-on-secondary;
+$--theme-on-surface: --theme-on-surface;
+$--theme-success: --theme-success;
+
+$theme-map-light: (
+    $--theme-primary: #140342,
+    $--theme-secondary: #6440FB,
+    $--theme-surface: #fff,
+    $--theme-background: #EEF2F6,
+    $--theme-on-primary: #fff,
+    $--theme-on-secondary: #fff,
+    $--theme-on-surface: #000,
+    $--theme-success:#00FF84
+);
+
+$theme-map-dark: (
+    $--theme-primary: #000000,
+    $--theme-secondary: #c298dc,
+    $--theme-surface: #2f2b2b,
+    $--theme-background: #1b1918,
+    $--theme-on-primary: #443e41,
+    $--theme-on-secondary: #000,
+    $--theme-on-surface: #f5f1f2,
+    $--theme-success:#00FF84
+);
