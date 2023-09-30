@@ -1,2 +1,5 @@
-.layout__container__wrapper{
+.layout_container_full_width{
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    padding: 1.25rem;
 }

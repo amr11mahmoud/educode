@@ -1,11 +1,7 @@
-
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem;
-    width: min(1440px, 100%);
-    margin-inline: auto;
     gap: 1rem;
     color: var(--theme-on-primary);
     & > *, .logo {
