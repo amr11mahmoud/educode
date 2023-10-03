@@ -6,6 +6,11 @@ $--theme-on-primary: --theme-on-primary;
 $--theme-on-secondary: --theme-on-secondary;
 $--theme-on-surface: --theme-on-surface;
 $--theme-success: --theme-success;
+$--theme-orange: --theme-orange;
+$--theme-gray: --theme-gray;
+$--theme-gold: --theme-gold;
+
+$--theme-orange-rgb: --theme-orange-rgb;
 
 $theme-map-light: (
     $--theme-primary: #140342,
@@ -15,7 +20,11 @@ $theme-map-light: (
     $--theme-on-primary: #fff,
     $--theme-on-secondary: #fff,
     $--theme-on-surface: #000,
-    $--theme-success:#00FF84
+    $--theme-success:#00FF84,
+    $--theme-orange:#E8543E,
+    $--theme-gray:#4F547B,
+    $--theme-orange-rgb: (232, 84, 62),
+    $--theme-gold:#F2B069
 );
 
 $theme-map-dark: (
@@ -26,5 +35,9 @@ $theme-map-dark: (
     $--theme-on-primary: #443e41,
     $--theme-on-secondary: #000,
     $--theme-on-surface: #f5f1f2,
-    $--theme-success:#00FF84
+    $--theme-success:#00FF84,
+    $--theme-orange:#E8543E,
+    $--theme-gray:#4F547B,
+    $--theme-orange-rgb: (232, 84, 62),
+    $--theme-gold:#F2B069
 );

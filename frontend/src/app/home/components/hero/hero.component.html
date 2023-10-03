@@ -30,25 +30,41 @@
             </p>
         </div>
     
-        <div class="hero__images">
-            <div class="hero__image__container">
-                <img src="" alt="" class="hero__image">
+        <div class="hero__images" [style]= "hero_image_style">
+            <div class="hero__image__container" style="background: url('../../../../assets/image_placeholder.svg') var(--theme-primary) no-repeat center / cover;">
                 <div class="hero__image__description">
-    
+                    <span class="hero__image__icon"><fa-icon [icon]="faSuitcase"></fa-icon></span>
+                    <div>
+                        <p class="p__orange">3.000 +</p>
+                        <p class="p__gray">Free Courses</p>
+                    </div>
                 </div>
             </div>
     
-            <div class="hero__image__container">
-                <img src="" alt="" class="hero__image">
+            <div class="hero__image__container" style="background: url('../../../../assets/image_placeholder.svg') var(--theme-primary) no-repeat center / cover;">
                 <div class="hero__image__description">
-    
+                    <span class="hero__image__description__circle"></span>
+                    <div>
+                        <p class="p__primary">Ali Tufan</p>
+                        <p class="p__gray">UX/UI Designer</p>
+                        <div class="hero__image__description__rating">
+                            <fa-icon [icon]="faStar"></fa-icon>
+                            <fa-icon [icon]="faStar"></fa-icon>
+                            <fa-icon [icon]="faStar"></fa-icon>
+                            <fa-icon [icon]="faStar"></fa-icon>
+                            <fa-icon [icon]="faStar"></fa-icon>
+                        </div>
+                    </div>
                 </div>
             </div>
     
-            <div class="hero__image__container">
-                <img src="" alt="" class="hero__image">
+            <div class="hero__image__container" style="background: url('../../../../assets/image_placeholder.svg') var(--theme-primary) no-repeat center / cover;">
                 <div class="hero__image__description">
-    
+                    <span class="hero__image__icon__award"><fa-icon [icon]="faMedal"></fa-icon></span>
+                    <div>
+                        <p class="p__secondary">Congrats!</p>
+                        <p class="p__gray">Your Admission Completed</p>
+                    </div>
                 </div>
             </div>
         </div>

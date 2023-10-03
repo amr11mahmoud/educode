@@ -1,16 +1,16 @@
-﻿using Educode.Domain.Models.Auth.ValueObjects;
-using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Educode.Domain.Models.Auth
+namespace Educode.Core.Commands.Auth.RegisterUserCommand
 {
-    public class User: IdentityUser<string>
+    public class RegisterUserCommand
     {
+        public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Password { get; set; }
     }
 }
