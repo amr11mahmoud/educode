@@ -21,11 +21,11 @@ jobs:
           dotnet-version: "7.0.x"
 
       - name: Restore
-        run: dotnet restore ./backend.sln
+        run: dotnet restore ./backend/backend.sln
 
       - name: Build
-        run: dotnet build ./backend.sln --configuration Release --no-restore
+        run: dotnet build ./backend/backend.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./backend.sln --configuration Release --no-build
+        run: dotnet publish ./backend/backend.sln --configuration Release --no-build
       
