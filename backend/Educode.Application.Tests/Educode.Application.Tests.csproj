@@ -7,11 +7,9 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <RootNamespace>Educode.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSharpFunctionalExtensions" Version="2.40.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="Moq" Version="4.20.69" />
     <PackageReference Include="xunit" Version="2.4.2" />
@@ -26,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Educode.Core\Educode.Core.csproj" />
-    <ProjectReference Include="..\Educode.Domain\Educode.Domain.csproj" />
+    <ProjectReference Include="..\Educode.Application\Educode.Application.csproj" />
   </ItemGroup>
 
 </Project>

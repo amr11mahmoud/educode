@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Educode.CompositionRoot", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Educode.Core.Tests", "Educode.Core.Tests\Educode.Core.Tests.csproj", "{C76560D3-18B3-444F-97ED-BFE067FB7FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Educode.Domain.Tests", "Educode.Domain.Tests\Educode.Domain.Tests.csproj", "{D2A7A415-C52E-44A1-823E-352BBB1AA2BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Educode.Domain.Tests", "Educode.Domain.Tests\Educode.Domain.Tests.csproj", "{D2A7A415-C52E-44A1-823E-352BBB1AA2BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Educode.Application.Tests", "Educode.Application.Tests\Educode.Application.Tests.csproj", "{7A209989-2ADC-48AF-AF55-18DF6BAF995D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{D2A7A415-C52E-44A1-823E-352BBB1AA2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2A7A415-C52E-44A1-823E-352BBB1AA2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2A7A415-C52E-44A1-823E-352BBB1AA2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A209989-2ADC-48AF-AF55-18DF6BAF995D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A209989-2ADC-48AF-AF55-18DF6BAF995D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A209989-2ADC-48AF-AF55-18DF6BAF995D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A209989-2ADC-48AF-AF55-18DF6BAF995D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
