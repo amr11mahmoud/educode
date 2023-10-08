@@ -1,0 +1,10 @@
+.partners{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    img {
+        flex: 1;
+        object-fit: scale-down;
+    }
+}

@@ -1,5 +1,3 @@
-@import "../../../../styles/root/mixins";
-
 .hero {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -10,7 +8,7 @@
 }
 
 .layout__container__wrapper {
-  background: url("../../../../assets/hero_bg_elements.svg")
+  background: url("../../../../../assets/hero_bg_elements.svg")
     var(--theme-primary) no-repeat center / 80%;
   position: relative;
   z-index: 1;
@@ -69,20 +67,25 @@
     border-radius: 1rem;
     position: relative;
     transform: translate(calc(var(--x) /5), calc(var(--y)/5));
-    transition-delay: 10ms;
+    transition: transform .5s;
+    // transition-property: background-color, color;
+    // transition-delay: 10ms;
     &:first-child {
+      transition-timing-function: cubic-bezier(.215,.61,.355,1);
       .hero__image__description {
         width: 80%;
       }
     }
 
-    &:nth-child(2) {
+    &:nth-child(2) {      
+      transition-timing-function: linear;
       .hero__image__description {
         width: 120%;
       }
     }
 
     &:nth-child(3) {
+      transition-timing-function: ease-out;
       .hero__image__description {
         width: 110%;
         transform: translate(-30%, 50%);

@@ -1,0 +1,61 @@
+.carousel__cards{
+    display: grid;
+    grid-auto-flow:column;
+    grid-auto-columns: minmax(.5fr, 17%);
+    gap: 1rem;
+    list-style: none;
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+
+    & > li{
+        scroll-snap-align: start;
+        scroll-padding-inline: 1rem;
+    }
+}
+
+.scroll__control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem
+}
+
+.scroll__dots{
+    display: flex;
+    gap: 1rem;
+    font-size: .55rem;
+    list-style-type: none;
+    li{
+       color: var(--theme-secondary);
+       opacity: .2;
+       transition: opacity .3s cubic-bezier(.215,.61,.355,1);
+       &.active{
+        opacity: 1;
+       }
+    }
+}
+
+
+.scroll__arrow{
+    cursor: pointer;
+    padding: 7.5px;
+    background-color: transparent;
+    border: none;
+    transition: .3s cubic-bezier(.215,.61,.355,1);
+    transition-property: transform, color;
+    &:hover{
+        &:first-child{
+            transform: translateX(-5px) scale(1.25);
+        }
+        transform: translateX(5px) scale(1.25);
+        color: var(--theme-secondary);
+    }
+}

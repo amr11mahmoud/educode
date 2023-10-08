@@ -1,0 +1,41 @@
+.carousel__card{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--theme-alice-blue);
+    width: 11.875rem;
+    height: 15rem;
+    // justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    border-radius: .5rem;
+    transition: .3s cubic-bezier(.215,.61,.355,1);
+    transition-property: background-color, color;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--theme-primary);
+        & > *{
+           color: var(--theme-on-primary);
+           
+        }
+    }
+    .carousel__card__img{
+        display: grid;
+        background-color: var(--theme-on-primary);
+        border-radius: 50%;
+        width: 30%;
+        height: 30%;
+        place-content: center;
+        img{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    
+    .card__title{
+        line-height: 1.7rem;
+        height: 3.8rem;       /* height is 2x line-height, so two lines will display */
+        // overflow: hidden;
+    }
+}

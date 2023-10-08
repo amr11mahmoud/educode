@@ -1,0 +1,25 @@
+<div class="layout_container_full_width">
+    <section class="overflow-hidden">
+        <h2 class="title__primary text__center w700 mt3">{{Title}}</h2>
+        <p class="p__gray text__center w400 mb3">{{SubTitle}}</p>
+        <ul class="carousel__cards" #carousel>
+            <li *ngFor = "let card of Cards">
+               <app-card [Title]="card.Title" [SubTitle]="card.SubTitle" [IconPath]="card.IconPath"></app-card> 
+            </li>
+        </ul>
+        <br/>
+        <div class="scroll__control">
+            <button class= "scroll__arrow" (click)="onArrowClick(arrowDirections.Left)"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+            <ul class="scroll__dots">
+                <li class="scroll__dot" 
+                *ngFor = "let ind of Indexes; index as i" 
+                (click)="onDotClick(i)" 
+                [ngClass]="{'active': i === state.get().activeCarouselPage}">
+                    <fa-icon [icon]="faCircle"></fa-icon>
+                </li>
+            </ul>
+            <button class= "scroll__arrow" (click)="onArrowClick(arrowDirections.Right)"><fa-icon [icon]="faArrowRight"></fa-icon></button>
+        </div>
+    </section>
+</div>
+
