@@ -1,11 +1,11 @@
-﻿using Educode.Domain.Models.Auth;
+﻿using Educode.Domain.Users.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace Educode.Infrastructure.DbContext
 {
-    public class ApplicationDbContext:IdentityDbContext<User, Role, string, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+    public class ApplicationDbContext:IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {

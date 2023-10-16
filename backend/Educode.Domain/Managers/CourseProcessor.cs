@@ -1,5 +1,5 @@
-﻿using Educode.Domain.Interfaces;
-using Educode.Domain.Models.Courses;
+﻿using Educode.Domain.Courses;
+using Educode.Domain.Abstractions;
 using Educode.Domain.Queries;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using System;

@@ -1,5 +1,5 @@
-﻿using Educode.Domain.Enums;
-using Educode.Domain.Models.Courses;
+﻿using Educode.Domain.Courses;
+using Educode.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

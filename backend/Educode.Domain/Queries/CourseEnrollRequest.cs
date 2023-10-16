@@ -1,4 +1,4 @@
-﻿using Educode.Domain.Models.Courses;
+﻿using Educode.Domain.Courses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,64 +1,26 @@
-.green-text-underline{
+$_fontWeight:10;
+$_header_title:6;
+
+@for $i from 1 through $_fontWeight{
+    $weight:$i * 100;
+    .w#{$weight}{
+        font-weight: $weight;
+    }
+}
+
+@for $i from 1 through $_header_title{
+    .h#{$i}__title{
+        font-size: calc((7rem - #{$i}rem)/3);
+        font-style: normal;
+    }
+}
+
+.title__green{
     color:var(--theme-success);
+}
+
+.text__underline{
     text-decoration: underline;
-}
-
-.h1__title{
-    font-size: 1.0625rem;
-    font-style: normal;
-}
-
-.h2__title{
-    font-size: 1.0625rem;
-    font-style: normal;
-}
-
-.h3__title{
-    font-size: 1.0625rem;
-    font-style: normal;
-}
-
-.h4__title{
-    font-size: 1.0625rem;
-    font-style: normal;
-}
-
-.h5__title{
-    font-size: 1.0625rem;
-    font-style: normal;
-}
-
-.h6__title{
-    font-size: 0.9375rem;
-    font-style: normal;
-}
-
-.w100{
-    font-weight: 100;
-}
-
-.w200{
-    font-weight: 200;
-}
-
-.w300{
-    font-weight: 300;
-}
-
-.w400{
-    font-weight: 400;
-}
-
-.w500{
-    font-weight: 500;
-}
-
-.w600{
-    font-weight: 600;
-}
-
-.w700{
-    font-weight: 700;
 }
 
 .title__primary{
@@ -68,7 +30,6 @@
 .title__gray{
     color: var(--theme-gray);
 }
-
 
 .text__center{
     text-align: center;

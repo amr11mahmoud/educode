@@ -1,33 +1,56 @@
+$_margin:10;
+$_padding:10;
+
 .layout_container_full_width{
     width: min(1440px, 100%);
     margin-inline: auto;
     padding: 1.25rem;
 }
 
-.mb1{
-    margin-bottom: 1rem;
+@for $i from 1 through $_margin{
+    .mt#{$i}{
+        margin-top: #{$i}rem;
+    }
+
+    .mb#{$i}{
+        margin-bottom: #{$i}rem;
+    }
+
+    .ml#{$i}{
+        margin-right: #{$i}rem;
+    }
+
+    .mr#{$i}{
+        margin-left: #{$i}rem;
+    }
+
+    .m#{$i}{
+        margin: #{$i}rem;
+    }
 }
 
-.mb2{
-    margin-bottom: 2rem;
+@for $i from 1 through $_padding{
+    .pt#{$i}{
+        padding-top: #{$i}rem;
+    }
+
+    .pb#{$i}{
+        padding-bottom: #{$i}rem;
+    }
+
+    .pl#{$i}{
+        padding-right: #{$i}rem;
+    }
+
+    .pr#{$i}{
+        padding-left: #{$i}rem;
+    }
+
+    .p#{$i}{
+        padding: #{$i}rem;
+    }
 }
 
-
-.mb3{
-    margin-bottom: 3rem;
-}
-
-.mt1{
-    margin-top: 1rem;
-}
-
-.mt2{
-    margin-top: 2rem;
-}
-
-.mt3{
-    margin-top: 3rem;
-}
 
 .overflow-hidden{
     overflow: hidden;
