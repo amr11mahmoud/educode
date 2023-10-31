@@ -22,10 +22,11 @@ namespace Educode.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.Role", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.Role", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -49,7 +50,7 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.RoleClaim", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,9 +64,8 @@ namespace Educode.Infrastructure.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -74,10 +74,11 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.User", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -92,6 +93,14 @@ namespace Educode.Infrastructure.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -139,7 +148,7 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserClaim", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,9 +162,8 @@ namespace Educode.Infrastructure.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -164,7 +172,7 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserLogin", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -175,9 +183,8 @@ namespace Educode.Infrastructure.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -186,13 +193,13 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserRole", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserRole", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -201,10 +208,10 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserToken", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserToken", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -220,51 +227,51 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.RoleClaim", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.RoleClaim", b =>
                 {
-                    b.HasOne("Educode.Domain.Models.Auth.Role", null)
+                    b.HasOne("Educode.Domain.Users.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserClaim", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserClaim", b =>
                 {
-                    b.HasOne("Educode.Domain.Models.Auth.User", null)
+                    b.HasOne("Educode.Domain.Users.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserLogin", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserLogin", b =>
                 {
-                    b.HasOne("Educode.Domain.Models.Auth.User", null)
+                    b.HasOne("Educode.Domain.Users.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserRole", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserRole", b =>
                 {
-                    b.HasOne("Educode.Domain.Models.Auth.Role", null)
+                    b.HasOne("Educode.Domain.Users.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Educode.Domain.Models.Auth.User", null)
+                    b.HasOne("Educode.Domain.Users.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Educode.Domain.Models.Auth.UserToken", b =>
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserToken", b =>
                 {
-                    b.HasOne("Educode.Domain.Models.Auth.User", null)
+                    b.HasOne("Educode.Domain.Users.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

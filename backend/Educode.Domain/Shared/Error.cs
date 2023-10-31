@@ -9,9 +9,9 @@
             public static class General
             {
                 public static Error IsRequiredError()
-                    => new Error("value.is.required", $"value is required");
+                    => new Error("value.is.required", "value is required");
                 public static Error IsRequiredError(string value)
-                    => new Error("value.is.required", $"{value} is required");
+                    => new Error("value.is.required", $"{value} is required", value);
 
                 public static Error LengthError()
                     => new Error("length.is.incorrect", "value length is incorrect");
@@ -19,21 +19,55 @@
                     => new Error("length.is.incorrect", $"{value} length should be at least ${minLength}");
                 public static Error LengthError(string value, byte minLength, byte maxLength)
                     => new Error("length.is.incorrect", $"{value} length should be at least ${minLength} and ${maxLength} at most");
+                public static Error RequestIsNull(string request)
+                    => new Error("null.request.error", $"{request} is null");
+                public static Error InvalidFieldDataType(string field)
+                    => new Error("invalid.input.data", $"Input Data Error in field '{field}'", field);
             }
 
             public static class Users
             {
-
+                public static Error UserIsNull()
+                    => new Error("user.is.null", "user is null error");
+                public static Error EmailError()
+                   => new Error("email.error", "email is incorrect");
+                public static Error RegisterUserError(string code, string msg) 
+                    => new Error(code, msg);
             }
         }
 
         public string Code { get; }
         public string Message { get; }
+        public string? InvalidField { get;}
 
-        public Error(string code, string msg)
+        private const string sep = "||";
+
+        public string Serialize()
+        {
+            return $"{Code}{sep}{Message}{sep}{InvalidField}";
+        }
+
+        public static Error Deserialize(string serialized)
+        {
+            string[] data = serialized.Split(new[] { sep }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (data.Length < 3)
+            {
+                throw new Exception($"Invalid Error Deserialization {serialized}");
+            }
+
+            return new Error(data[0], data[1], data[2]);
+        }
+
+        public Error(string code, string msg):this(code, msg, "N/A")
+        {
+        }
+
+        public Error(string code, string msg, string invalidField)
         {
             Code = code;
             Message = msg;
+            InvalidField = invalidField;
         }
 
         public static implicit operator string(Error error) => error.Code;

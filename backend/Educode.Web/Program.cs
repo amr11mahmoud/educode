@@ -1,13 +1,21 @@
+using Educode.Domain.Managers;
 using Educode.Domain.Users.Models;
 using Educode.Infrastructure.DbContext;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using Educode.Domain.Shared;
+using static Educode.Domain.Shared.Error;
+using Educode.Web.Middlewares;
 
 namespace Educode.Web
 {
@@ -26,7 +34,17 @@ namespace Educode.Web
                     loggerConfig.ReadFrom.Configuration(context.Configuration).ReadFrom.Services(services);
                 });
 
-            builder.Services.AddControllers().AddApplicationPart(presentationAssembly);
+            builder.Services
+                .AddControllers()
+                .ConfigureApiBehaviorOptions(opt =>
+                {
+                    opt.InvalidModelStateResponseFactory = ModelStateValidator.ValidModelState;
+                }).AddApplicationPart(presentationAssembly);
+
+            builder.Services.AddValidatorsFromAssembly(applicationAssembly);
+            builder.Services.AddFluentValidationAutoValidation(); // the same old MVC pipeline behavior
+            builder.Services.AddFluentValidationClientsideAdapters();
+
             builder.Services.AddMediatR(opt =>
             {
                 opt.RegisterServicesFromAssembly(applicationAssembly);
@@ -78,7 +96,6 @@ namespace Educode.Web
                 options.Password.RequireLowercase = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 4;
-                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@";
                 options.User.RequireUniqueEmail = true;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -114,6 +131,8 @@ namespace Educode.Web
                 };
             });
 
+            builder.Services.AddTransient<UserManager>();
+
             var app = builder.Build();
 
             app.UseSerilogRequestLogging();
@@ -132,6 +151,7 @@ namespace Educode.Web
                 app.UseExceptionHandler();
             }
 
+            app.UseResponseWrapper();
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -147,6 +167,28 @@ namespace Educode.Web
             app.MapControllers();
 
             app.Run();
+        }
+
+        public class ModelStateValidator
+        {
+            public static IActionResult ValidModelState(ActionContext context)
+            {
+                (string fieldName, ModelStateEntry entry) = context.ModelState.First(x => x.Value.Errors.Count > 0);
+                string errorSerialized = entry.Errors.First().ErrorMessage;
+
+                try
+                {
+                    Error error = Deserialize(errorSerialized);
+
+                    return new BadRequestObjectResult(error);
+
+                }
+                catch (Exception)
+                {
+
+                    return new BadRequestObjectResult(Errors.General.InvalidFieldDataType(fieldName));
+                }
+            }
         }
     }
 }
