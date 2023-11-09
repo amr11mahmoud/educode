@@ -19,7 +19,7 @@ namespace Educode.Domain.Users.Models
 
         }
 
-        public static Result<User> Create(string fName, string lName, Email email)
+        private static Result<User> Create(string fName, string lName, Email email)
         {
             Result nameResult = IsValidName(fName, lName);
 
@@ -35,6 +35,34 @@ namespace Educode.Domain.Users.Models
             };
 
             return Result.Success(user);
+        }
+
+        public static Result<User> Create(string fName, string lName, string email)
+        {
+            Result<Email> emailResult = ValueObjects.Email.Create(email);
+            if (emailResult.IsFailure) return Result.Failure<User>(emailResult.Error);
+
+            return Create(fName, lName, emailResult.Value);
+        }
+
+        public static Result<User> UpdateUserObject(User user, string fName, string lName, string email)
+        {
+            Result<User> result = Create(fName, lName, email);
+            if (result.IsFailure) Result.Failure<User>(result.Error);
+
+            user.FirstName = result.Value.FirstName;
+            user.LastName = result.Value.LastName;
+
+            return Result.Success(user);
+        }
+
+        public static Result<User> Update(Guid userId, User user)
+        {
+            Result<User> userResult = Create(user.FirstName, user.LastName, user.Email);
+            if (userResult.IsFailure) Result.Failure<User>(userResult.Error);
+
+            userResult.Value.Id = userId;
+            return userResult;
         }
 
         public static Result SetUserPassword(User user, string password)

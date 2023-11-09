@@ -193,6 +193,32 @@ namespace Educode.Infrastructure.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserRefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRefreshTokens");
+                });
+
             modelBuilder.Entity("Educode.Domain.Users.Models.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -252,6 +278,17 @@ namespace Educode.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Educode.Domain.Users.Models.UserRefreshToken", b =>
+                {
+                    b.HasOne("Educode.Domain.Users.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Educode.Domain.Users.Models.UserRole", b =>

@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Educode.Domain.Models.Abstract;
 
 namespace Educode.Domain.Courses
 {
-    public class Course
+    public class Course : Entity<Guid>
     {
-        public int CourseId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public Course(Guid id) : base(id)
+        {
+        }
+
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         public DateTime TimeStamp { get; set; }
     }
 }

@@ -13,6 +13,9 @@ namespace Educode.Core
     {
        public static class User
         {
+            public const double TokenExpiryDays = 7; 
+            public const double RefreshTokenExpiryDays = 30;
+
             public static class Roles
             {
                 public const string Admin = "admin";

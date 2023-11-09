@@ -16,6 +16,9 @@ using System.Text;
 using Educode.Domain.Shared;
 using static Educode.Domain.Shared.Error;
 using Educode.Web.Middlewares;
+using Educode.Domain.Abstractions;
+using Educode.Infrastructure.Repositories;
+using Educode.Web.Configurations;
 
 namespace Educode.Web
 {
@@ -100,8 +103,8 @@ namespace Educode.Web
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
-                .AddUserStore<UserStore<User, Role, ApplicationDbContext, Guid>>()
-                .AddRoleStore<RoleStore<Role, ApplicationDbContext, Guid>>()
+                .AddUserStore<UserStore<User, Role, ApplicationDbContext, Guid, UserClaim, UserRole, UserLogin, UserToken, RoleClaim>>()
+                .AddRoleStore<RoleStore<Role, ApplicationDbContext, Guid, UserRole, RoleClaim>>()
                 .AddUserManager<UserManager<User>>()
                 .AddRoleManager<RoleManager<Role>>()
                 .AddUserValidator<UserValidator<User>>()
@@ -131,7 +134,9 @@ namespace Educode.Web
                 };
             });
 
+            builder.Services.AddAutoMapper(typeof(MapperConfig));
             builder.Services.AddTransient<UserManager>();
+            builder.Services.AddTransient(typeof(IApplicationRepository<>), typeof(ApplicationRepository<>));
 
             var app = builder.Build();
 

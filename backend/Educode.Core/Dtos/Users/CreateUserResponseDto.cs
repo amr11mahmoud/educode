@@ -8,6 +8,11 @@ namespace Educode.Core.Dtos.Users
 {
     public class CreateUserResponseDto
     {
-        public Guid UserId { get; set; }
+        public Guid UserId { get; private set; }
+
+        public CreateUserResponseDto(Guid userId)
+        {
+            UserId = userId;
+        }
     }
 }

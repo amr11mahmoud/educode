@@ -1,9 +1,10 @@
-﻿using Educode.Domain.Shared;
+﻿using Educode.Domain.Models.Abstract;
+using Educode.Domain.Shared;
 using static Educode.Domain.Shared.Error;
 
 namespace Educode.Domain.Users.ValueObjects
 {
-    public class Email : CSharpFunctionalExtensions.ValueObject
+    public class Email : ValueObject
     {
         public string Value { get; private set; }
 

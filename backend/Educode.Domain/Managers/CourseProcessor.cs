@@ -30,21 +30,21 @@ namespace Educode.Domain.Managers
 
             var result = Create<CourseEnrollResult>(request);
 
-            if (availableCourses.Any(x => x.CourseId == request.CourseId))
-            {
-                var courseEnrollment = Create<CourseEnrollment>(request);
-                courseEnrollment.CourseId = request.CourseId;
+            //if (availableCourses.Any(x => x.Id == request.CourseId))
+            //{
+            //    var courseEnrollment = Create<CourseEnrollment>(request);
+            //    courseEnrollment.CourseId = request.CourseId;
 
-                _courseRepository.SaveToDb(courseEnrollment);
+            //    _courseRepository.SaveToDb(courseEnrollment);
 
-                result.Code = Enums.CourseEnrollmentResultCode.Success;
-                result.CourseEnrollmentId = courseEnrollment.Id;
-            }
-            else
-            {
-                result.Code = Enums.CourseEnrollmentResultCode.NoCourseAvailable;
-                result.CourseEnrollmentId = null;
-            }
+            //    result.Code = Enums.CourseEnrollmentResultCode.Success;
+            //    result.CourseEnrollmentId = courseEnrollment.Id;
+            //}
+            //else
+            //{
+            //    result.Code = Enums.CourseEnrollmentResultCode.NoCourseAvailable;
+            //    result.CourseEnrollmentId = null;
+            //}
 
             return result;
         }

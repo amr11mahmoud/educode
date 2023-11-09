@@ -12,7 +12,6 @@
                     => new Error("value.is.required", "value is required");
                 public static Error IsRequiredError(string value)
                     => new Error("value.is.required", $"{value} is required", value);
-
                 public static Error LengthError()
                     => new Error("length.is.incorrect", "value length is incorrect");
                 public static Error LengthError(string value, byte minLength)
@@ -27,12 +26,26 @@
 
             public static class Users
             {
+                public static Error UserNotFound()
+                    => new Error("user.not.found", "user not found!");
+                public static Error UserNotFound(string email)
+                    => new Error("user.not.found", $"user with email:{email} not found!", "email");
                 public static Error UserIsNull()
                     => new Error("user.is.null", "user is null error");
                 public static Error EmailError()
                    => new Error("email.error", "email is incorrect");
                 public static Error RegisterUserError(string code, string msg) 
                     => new Error(code, msg);
+                public static Error InvalidPassword()
+                    => new Error("incorrect.password", "password is incorrect", "password");
+                public static Error InvalidJwtToken()
+                    => new Error("invalid.jwt.token", "invalid jwt token!");
+                public static Error UserCanNotSignIn()
+                    => new Error("user.can.not.login", "user can't login", "email");
+                public static Error UserSignInNotAllowed()
+                    => new Error("user.login.not.allowed", "user login not allowed", "email");
+                public static Error UserLockout()
+                   => new Error("user.lockout", "user account is lockout", "email");
             }
         }
 
