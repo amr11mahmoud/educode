@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
@@ -19,8 +19,9 @@ const routes:Routes = [
 ];
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

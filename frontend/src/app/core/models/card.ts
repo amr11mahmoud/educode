@@ -1,17 +1,17 @@
 export class Card{
-    Id:number;
-    Title:string;
-    SubTitle:string;
-    IconPath:string;
+    id:number;
+    title:string;
+    subTitle:string;
+    iconPath:string;
   
     /**
      *
      */
     constructor(Id:number, Title:string, SubTitle:string, IconPath:string) {
-      this.Id = Id;
-      this.Title = Title;
-      this.SubTitle = SubTitle;
-      this.IconPath = IconPath;
+      this.id = Id;
+      this.title = Title;
+      this.subTitle = SubTitle;
+      this.iconPath = IconPath;
     }
     
   }

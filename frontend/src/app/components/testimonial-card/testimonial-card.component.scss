@@ -1,0 +1,35 @@
+.testimonial-card {
+  position: relative;
+  background-color: var(--bg-5);
+  border-radius: 0.5rem;
+  padding: 30px;
+  width: 20rem;
+  // height: 15rem;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    .qoute {
+      flex: 0 0 auto; // turn off shrink and grow behavior
+      background: url(../../../assets/qoute.svg) transparent no-repeat center /
+        cover;
+      width: 30px;
+    }
+  }
+
+  .author___section {
+    // position: absolute;
+    bottom: 2;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & > div {
+      display: flex;
+      flex-direction: column;
+    }
+    & > img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}

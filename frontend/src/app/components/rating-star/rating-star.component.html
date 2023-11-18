@@ -1,0 +1,24 @@
+<div tabindex="0" class="medium rating star-svg value-0" id="10">
+  <div class="star-container star-color center-all">
+    <div *ngFor="let i of createRange(numberOfStars)" class="star">
+      <svg class="star-filled {{ stars[i][0] ? 'show' : '' }}">
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="assets/images/star-rating.icons.svg#star-filled"
+        ></use>
+      </svg>
+      <svg class="star-half {{ stars[i][1] ? 'show' : '' }}">
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="assets/images/star-rating.icons.svg#star-half"
+        ></use>
+      </svg>
+      <svg class="star-empty {{ stars[i][2] ? 'show' : '' }}">
+        <use
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="assets/images/star-rating.icons.svg#star-empty"
+        ></use>
+      </svg>
+    </div>
+  </div>
+</div>

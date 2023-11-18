@@ -4,7 +4,7 @@
         <p class="p__gray text__center w400 mb3">{{SubTitle}}</p>
         <ul class="carousel__cards" #carousel>
             <li *ngFor = "let card of Cards">
-               <app-card [Title]="card.Title" [SubTitle]="card.SubTitle" [IconPath]="card.IconPath"></app-card> 
+               <app-card [Title]="card.title" [SubTitle]="card.subTitle" [IconPath]="card.iconPath"></app-card> 
             </li>
         </ul>
         <br/>

@@ -1,0 +1,233 @@
+.div {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  position: relative;
+}
+
+.tags {
+  justify-content: space-between;
+  & > * {
+    position: absolute;
+    top: 10px;
+    padding: 4px 10px;
+    border-radius: 2rem;
+    display: none;
+  }
+
+  .first-tag {
+    left: 10px;
+  }
+  .second-tag {
+    right: 10px;
+  }
+}
+
+.active{
+  display: block !important;
+}
+
+.popular {
+  background-color: var(--color-1);
+  color: var(--color-5);
+}
+
+.new {
+  background-color: var(--color-4);
+  color: var(--color-5);
+}
+
+.bestseller {
+  background-color: var(--color-6);
+  color: var(--Head---Color);
+}
+
+@media (max-width: 991px) {
+  .div {
+    margin-top: 30px;
+  }
+}
+.img {
+  aspect-ratio: 1.43;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  overflow: hidden;
+}
+.div-2 {
+  display: flex;
+  margin-top: 18px;
+  justify-content: space-between;
+  gap: 9px;
+}
+@media (max-width: 991px) {
+  .div-2 {
+    justify-content: center;
+  }
+}
+.div-3 {
+  color: var(--theme-gold);
+  align-self: start;
+  font: 400 14px/16px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.img-2 {
+  aspect-ratio: 7.8;
+  object-fit: contain;
+  object-position: center;
+  width: 78px;
+  overflow: hidden;
+  align-self: start;
+  max-width: 100%;
+}
+.div-4 {
+  color: var(--Text---Color);
+  white-space: nowrap;
+  font: 400 13px/15px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+@media (max-width: 991px) {
+  .div-4 {
+    white-space: initial;
+  }
+}
+.div-5 {
+  color: var(--Head---Color);
+  text-transform: capitalize;
+  font: 400 17px/26px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.div-6 {
+  display: flex;
+  margin-top: 13px;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 5px;
+}
+@media (max-width: 991px) {
+  .div-6 {
+    justify-content: center;
+  }
+}
+.img-3 {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  overflow: hidden;
+  align-self: stretch;
+  max-width: 100%;
+}
+.div-7 {
+  color: var(--Text---Color);
+  align-self: center;
+  margin: auto 0;
+  font: 400 14px/16px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.img-4 {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  overflow: hidden;
+  align-self: stretch;
+  max-width: 100%;
+}
+.div-8 {
+  color: var(--Text---Color);
+  align-self: center;
+  margin: auto 0;
+  font: 400 14px/16px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.img-5 {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  overflow: hidden;
+  align-self: stretch;
+  max-width: 100%;
+}
+.div-9 {
+  color: var(--Text---Color);
+  align-self: start;
+  white-space: nowrap;
+  font: 400 14px/16px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+@media (max-width: 991px) {
+  .div-9 {
+    white-space: initial;
+  }
+}
+.div-10 {
+  background-color: var(--border-1);
+  display: flex;
+  margin-top: 10px;
+  height: 1px;
+  flex-direction: column;
+}
+.div-11 {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
+.div-12 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.img-6 {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 30px;
+  overflow: hidden;
+  max-width: 100%;
+}
+.div-13 {
+  color: var(--Text---Color);
+  align-self: center;
+  flex-grow: 1;
+  white-space: nowrap;
+  margin: auto 0;
+  font: 400 14px/16px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+@media (max-width: 991px) {
+  .div-13 {
+    white-space: initial;
+  }
+}
+.div-14 {
+  align-self: center;
+  display: flex;
+  align-items: start;
+  gap: 11px;
+  margin: auto 0;
+}
+.div-15 {
+  text-decoration: line-through;
+  color: var(--Text---Color);
+  text-align: right;
+  text-decoration-line: strikethrough;
+  font: 400 15px/17px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+.div-16 {
+  color: var(--Head---Color);
+  text-align: right;
+  align-self: stretch;
+  white-space: nowrap;
+  font: 400 18px/21px GT Walsheim Pro, -apple-system, Roboto, Helvetica,
+    sans-serif;
+}
+@media (max-width: 991px) {
+  .div-16 {
+    white-space: initial;
+  }
+}

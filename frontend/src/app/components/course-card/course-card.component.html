@@ -1,0 +1,74 @@
+<div class="div">
+  <div class="tags">
+    <span class="first-tag " [ngClass]="[courseTag(Course.tags[0])]" [class.active]="Course.tags[0] !== 0">{{courseTag(Course.tags[0])}}</span>
+    <span class="second-tag " [ngClass]="[courseTag(Course.tags[1])]" [class.active]="Course.tags[1] !== 0">{{courseTag(Course.tags[1])}}</span>
+  </div>
+  <img
+    loading="lazy"
+    srcset="
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=100   100w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=200   200w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=400   400w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=800   800w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=1200 1200w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=1600 1600w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=2000 2000w,
+      https://cdn.builder.io/api/v1/image/assets/TEMP/230eb2cc-be63-4b6a-893f-9bff96cbca08?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&
+    "
+    class="img"
+  />
+  <div class="div-2">
+    <div class="div-3">{{ Course.rating }}</div>
+    <app-rating-star [rating]="Course.rating" [numberOfStars]="5"/>
+    <div class="div-4">{{ Course.ratingCount }}</div>
+  </div>
+  <div class="div-5">{{ Course.title }}</div>
+  <div class="div-6">
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0927019-90de-4dcf-9aea-7cffb22e05cb?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&"
+      class="img-3"
+    />
+    <div class="div-7">{{ Course.lessons }} lessons</div>
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/8f19a1e7-db4e-475b-9484-98b5912574f4?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&"
+      class="img-4"
+    />
+    <div class="div-8">
+      {{ Course.durationHours }}h {{ Course.durationMinutes }}m
+    </div>
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/548d9f92-be0a-40da-85e1-db2f42506108?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&"
+      class="img-5"
+    />
+    <div class="div-9">{{ courseLevel(Course.level) }}</div>
+  </div>
+  <div class="div-10"></div>
+  <div class="div-11">
+    <div class="div-12">
+      <img
+        loading="lazy"
+        srcset="
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=100   100w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=200   200w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=400   400w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=800   800w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=1200 1200w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=1600 1600w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&width=2000 2000w,
+          https://cdn.builder.io/api/v1/image/assets/TEMP/50330631-7585-4eb1-86b5-8c77b4d77400?apiKey=aef41e4dbfe94d4eaf03d48a05e29506&
+        "
+        class="img-6"
+      />
+      <div class="div-13">{{ Course.teacher }}</div>
+    </div>
+    <div class="div-14">
+      <div class="div-15">${{ Course.price }}</div>
+      <div class="div-16">
+        ${{ priceAfterDiscount(Course.price, Course.discount) }}
+      </div>
+    </div>
+  </div>
+</div>

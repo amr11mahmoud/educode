@@ -1,3 +1,15 @@
+$--Head---Color: --Head---Color;
+$--Text---Color: --Text---Color;
+$--color-1: --color-1;
+$--color-2: --color-2;
+$--color-4: --color-4;
+$--color-5: --color-5;
+$--color-6: --color-6;
+$--bg-color-2: --bg-color-2;
+$--bg-4: --bg-4;
+$--bg-5: --bg-5;
+$--border-1: --border-1;
+
 $--theme-primary: --theme-primary;
 $--theme-secondary: --theme-secondary;
 $--theme-surface: --theme-surface;
@@ -12,36 +24,81 @@ $--theme-gold: --theme-gold;
 $--theme-alice-blue: --theme-alice-blue;
 
 $--theme-orange-rgb: --theme-orange-rgb;
+$--theme-secondary-rgb: --theme-secondary-rgb;
 
 $theme-map-light: (
-    $--theme-primary: #140342,
-    $--theme-secondary: #6440FB,
-    $--theme-surface: #fff,
-    $--theme-background: #EEF2F6,
-    $--theme-on-primary: #fff,
-    $--theme-on-secondary: #fff,
-    $--theme-on-surface: #000,
-    $--theme-success:#00FF84,
-    $--theme-orange:#E8543E,
-    $--theme-gray:#4F547B,
-    $--theme-orange-rgb: (232, 84, 62),
-    $--theme-gold:#F2B069,
-    $--theme-alice-blue:#eef2f6
+  $--theme-primary: #140342,
+  $--theme-secondary: #6440fb,
+  $--theme-surface: #fff,
+  $--theme-background: #eef2f6,
+  $--theme-on-primary: #fff,
+  $--theme-on-secondary: #fff,
+  $--theme-on-surface: #000,
+  $--theme-success: #00ff84,
+  $--theme-orange: #e8543e,
+  $--theme-gray: #4f547b,
+  $--theme-orange-rgb: (
+    232,
+    84,
+    62,
+  ),
+  $--theme-secondary-rgb: (
+    100,
+    64,
+    251,
+  ),
+  $--theme-gold: #f2b069,
+  $--theme-alice-blue: #eef2f6,
 
+  $--Head---Color: #140342,
+  $--Text---Color: #4f547b,
+  $--color-1: #6440fb,
+  $--color-2: #1a064f,
+  $--color-4: #e8543e,
+  $--color-5: #ffffff,
+  $--color-6: #00ff84,
+  $--bg-color-2: #e5f0fd,
+  $--bg-4: #eef2f6,
+  $--bg-5: #fefbf4,
+  $--border-1: #ededed,
 );
 
 $theme-map-dark: (
-    $--theme-primary: #000000,
-    $--theme-secondary: #c298dc,
-    $--theme-surface: #2f2b2b,
-    $--theme-background: #1b1918,
-    $--theme-on-primary: #443e41,
-    $--theme-on-secondary: #000,
-    $--theme-on-surface: #f5f1f2,
-    $--theme-success:#00FF84,
-    $--theme-orange:#E8543E,
-    $--theme-gray:#4F547B,
-    $--theme-orange-rgb: (232, 84, 62),
-    $--theme-gold:#F2B069,
-    $--theme-alice-blue:#eef2f6
+  $--theme-primary: #000000,
+  $--theme-secondary: #c298dc,
+  $--theme-surface: #2f2b2b,
+  $--theme-background: #1b1918,
+  $--theme-on-primary: #443e41,
+  $--theme-on-secondary: #000,
+  $--theme-on-surface: #f5f1f2,
+  $--theme-success: #00ff84,
+  $--theme-orange: #e8543e,
+  $--theme-gray: #4f547b,
+  $--theme-orange-rgb: (
+    232,
+    84,
+    62,
+  ),
+  $--theme-gold: #f2b069,
+  $--theme-alice-blue: #eef2f6,
 );
+
+.color1{
+  color: var(--color-1);  
+}
+
+.color5{
+  color: var(--color-5);  
+}
+
+.head-color{
+  color: var(--Head---Color);  
+}
+
+.text-color{
+  color: var(--Text---Color);  
+}
+
+.divider-solid{
+  border-top: 1px solid var(--border-1);
+}

@@ -1,0 +1,33 @@
+<section class="testimonial p5 mt3">
+  <div class="header">
+    <span class="h2__title title__green text__center w600">{{ title }}</span>
+    <p class="color5 mb3">{{ subtitle }}</p>
+  </div>
+  <ul class="testimonial__list" #testimonials_list>
+    <li *ngFor="let testimonial of testimonials">
+      <app-testimonial-card [testimonial]="testimonial"></app-testimonial-card>
+    </li>
+  </ul>
+  <div class="scroll__control mt2">
+    <button class= "scroll__arrow" (click)="onArrowClick(arrowDirections.Left)"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+    <button class= "scroll__arrow" (click)="onArrowClick(arrowDirections.Right)"><fa-icon [icon]="faArrowRight"></fa-icon></button>
+  </div>
+  <div class="testimonial__statistics mt4">
+    <div>
+        <span class="title__green h2__title text__center w600">350,000+</span>
+        <span class="color5">Students worldwide</span>
+    </div>
+    <div>
+        <span class="title__green h2__title text__center w600">496,000+</span>
+        <span class="color5">Total course views</span>
+    </div>
+    <div>
+        <span class="title__green h2__title text__center w600">19,000+</span>
+        <span class="color5">Five-star course reviews</span>
+    </div>
+    <div>
+        <span class="title__green h2__title text__center w600">987,000+</span>
+        <span class="color5">Students community</span>
+    </div>
+  </div>
+</section>

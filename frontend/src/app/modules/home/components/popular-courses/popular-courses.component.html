@@ -1,0 +1,20 @@
+<div class="layout_container_full_width">
+    <section>
+        <div class="h3__title title__primary text__center w700 mt3">
+          Our Most Popular Courses
+        </div>
+        <div class="p__gray text__center w400 mb3">
+          10,000+ unique online course list designs
+        </div>
+        <ul class="categories___list mb1">
+          <li *ngFor="let category of categories " [class.active]="category.id === activeCategoryId" (click)="setActiveCategory(category.id)">
+            <span>{{ category.title }}</span>
+          </li>
+        </ul>
+        <div class="courses__list">
+          <div *ngFor="let course of activeCourses" class="course">
+            <app-course-card [Course]="course"></app-course-card>
+          </div>
+        </div>
+      </section>
+</div>

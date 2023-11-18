@@ -1,0 +1,65 @@
+.testimonial {
+  background-color: var(--color-1);
+}
+
+.header {
+  text-align: center;
+}
+
+.testimonial__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0.5fr, 17%);
+  gap: 1rem;
+  list-style: none;
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > li {
+    scroll-snap-align: start;
+    scroll-padding-inline: 1rem;
+  }
+}
+
+.scroll__control {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 1rem;
+  margin-right: 20%;
+}
+
+.scroll__arrow {
+  width: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--color-5);
+  cursor: pointer;
+  padding: 10px;
+  color: var(--color-5);
+  &:hover,
+  &:active {
+    background-color: var(--color-5);
+    color: var(--theme-primary);
+  }
+}
+
+.testimonial__statistics{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  &> div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
